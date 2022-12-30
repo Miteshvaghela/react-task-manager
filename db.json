@@ -1,21 +1,15 @@
 {
   "tasks": [
     {
-      "id": 674,
-      "text": "Market shopping ",
-      "day": "2nd jan 2023",
-      "reminder": false
-    },
-    {
-      "id": 973,
-      "text": "New task",
-      "day": "2nd jan 2023",
-      "reminder": false
-    },
-    {
       "id": 170,
       "text": "Starting my youtube channel",
       "day": "1st jan 2023 ",
+      "reminder": true
+    },
+    {
+      "id": 482,
+      "text": "New task 101",
+      "day": "1st jan 2023",
       "reminder": true
     }
   ]
