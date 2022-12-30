@@ -42,7 +42,6 @@ const App = () => {
     const fetchTask = async (id) => {
         const res = await fetch(`http://localhost:8000/tasks/${id}`);
         const data = await res.json();
-
         return data;
     }
 
@@ -57,11 +56,7 @@ const App = () => {
                 'content-type' : 'application/json'
             },
             body : JSON.stringify(getTask)
-        });
-
-        // const data = await res.json();
-
-
+        });  
         setTasks(tasks.map(task => (task.id === id)? {...task, reminder:!task.reminder} :task))
     }
 
@@ -82,9 +77,7 @@ const App = () => {
         })
 
         const data = await res.json();        
-        setTasks([data, ...tasks]);   
-            
-        
+        setTasks([data, ...tasks]);    
         
     }
 
