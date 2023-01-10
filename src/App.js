@@ -54,7 +54,7 @@ const App = ({}) => {
 
   return (
     <div className="container">
-      <Header title="Task Manager" onAddForm={onAddForm}/>
+      <Header title="Task Manager" onAddForm={onAddForm} showAddForm={showAddForm}/>
       {showAddForm && <AddForm onSaveTask={onSaveTask} />}
       <Tasks tasks={tasks} deleteMe={deleteMe} toggleMe={toggleMe}/>
     </div>
