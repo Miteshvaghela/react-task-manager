@@ -1,52 +1,57 @@
-import {React, useState, useEffect} from 'react'; 
+import {React, useState} from 'react'; 
 import './App.css';
-import Header from './components/Header'; 
-import AddTask from './components/AddTask'; 
+import Header from './components/Header';
+import AddForm from './components/AddForm'; 
 import Tasks from './components/Tasks'; 
+// https://github.com/Miteshvaghela/react-task-manager.git
+const App = ({}) => {
 
+  const [showAddForm, setShowAddFrom] = useState(false);
 
-function App() {
-
-  const [showTaskForm, setShowTaskForm] = useState(false);
   const [tasks, setTasks] = useState([
     {
       id : 1,
-      task : 'First task',
-      day : '5th feb 2023',
+      title : 'First task',
+      day : '3rd jan 2023',
       reminder : true
     },
     {
       id : 2,
-      task : 'second task',
-      day : '5th feb 2023',
-      reminder : false
+      title : 'Second task',
+      day : '3rd Feb 2023',
+      reminder : true
     },
     {
       id : 3,
-      task : 'Third task',
-      day : '5th Jul 2023',
+      title : 'Third task',
+      day : '5th March 2023',
       reminder : false
-    }
-  ]);
+    },
+  ])
 
-  const addTask = () => {
-    setShowTaskForm(!showTaskForm);
+  const onAddForm = () => {
+    setShowAddFrom(!showAddForm);
   }
+
+  const onSaveTask = (obj) => {
+    console.log(obj);
+  } 
 
   const toggleMe = (id) => {
-    setTasks(tasks.map(task => (task.id === id)?{...task, reminder:!task.reminder}:task))
+    setTasks(tasks.map(task => (task.id == id)?{...task, reminder:!task.reminder}:task));
   }
+
   const deleteMe = (id) => {
-    setTasks(tasks.filter(task => task.id !== id))
+    setTasks(tasks.filter(task => (task.id !== id)));
   }
 
   return (
     <div className="container">
-      <Header title="Task Tracker" addTask={addTask} showTaskForm={showTaskForm}/>
-      {showTaskForm && <AddTask />}
-      <Tasks tasks={tasks} toggleMe={toggleMe} deleteMe={deleteMe} />
+      <Header title="Task Manager" onAddForm={onAddForm}/>
+      {showAddForm && <AddForm onSaveTask={onSaveTask} />}
+      <Tasks tasks={tasks} deleteMe={deleteMe} toggleMe={toggleMe}/>
     </div>
-  );
+  )
 }
 
 export default App;
