@@ -1,4 +1,4 @@
-import {React, useState} from 'react'; 
+import {React, useState, useEffect} from 'react'; 
 import './App.css';
 import Header from './components/Header';
 import AddForm from './components/AddForm'; 
@@ -8,26 +8,9 @@ const App = ({}) => {
 
   const [showAddForm, setShowAddFrom] = useState(false);
 
-  const [tasks, setTasks] = useState([
-    {
-      id : 1,
-      title : 'First task',
-      day : '3rd jan 2023',
-      reminder : true
-    },
-    {
-      id : 2,
-      title : 'Second task',
-      day : '3rd Feb 2023',
-      reminder : true
-    },
-    {
-      id : 3,
-      title : 'Third task',
-      day : '5th March 2023',
-      reminder : false
-    },
-  ])
+  const [tasks, setTasks] = useState([]);
+
+
 
   const onAddForm = () => {
     setShowAddFrom(!showAddForm);
