@@ -34,7 +34,14 @@ const App = ({}) => {
   }
 
   const onSaveTask = (obj) => {
-    console.log(obj);
+    
+    const newTask = {
+      id : Math.floor(Math.random()*1000)+1,
+      title : obj.title,
+      day : obj.day,
+      reminder : obj.reminder
+    }
+    setTasks([...tasks, newTask]);
   } 
 
   const toggleMe = (id) => {
