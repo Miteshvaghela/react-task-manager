@@ -1,0 +1,22 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "First task",
+      "day": "7th Feb 2023",
+      "reminder": false
+    },
+    {
+      "id": 534,
+      "title": "New task",
+      "day": "1st jan 2023",
+      "reminder": true
+    },
+    {
+      "id": 766,
+      "title": "third task ",
+      "day": "1st jan 2023",
+      "reminder": false
+    }
+  ]
+}
