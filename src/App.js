@@ -1,20 +1,17 @@
-import {React, useState} from 'react'; 
+import {React, useState, useEffect} from 'react'; 
 import './App.css';
 import Header from './components/Header';
 import AddForm from './components/AddForm'; 
 import Tasks from './components/Tasks'; 
 // https://github.com/Miteshvaghela/react-task-manager.git
+
 const App = ({}) => {
-
   const [showAddForm, setShowAddFrom] = useState(false);
-
   const [tasks, setTasks] = useState([])
-  
+
 
   const onAddForm = () => {
-
-    setShowAddFrom(!showAddForm);
-    
+    setShowAddFrom(!showAddForm);    
   }
 
   const onSaveTask = (obj) => {
