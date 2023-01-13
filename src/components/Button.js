@@ -1,8 +1,10 @@
-import React from 'react'; 
+import React from 'react' 
 
-const Button = ({color, text, onAddForm}) => {
+const Button = ({text, color, showAddTaskForm}) => {
     return (
-        <button className="btn" onClick={onAddForm} style={{backgroundColor:color}}>{text}</button>
+        <button className="btn" style={{backgroundColor:color}} onClick={showAddTaskForm}>
+            {text}
+        </button>
     )
 }
 

@@ -1,11 +1,11 @@
 import React from 'react'; 
 import Button from './Button'; 
 
-const Header = ({title, onAddForm, showAddForm}) => {
+const Header = ({title, showForm, showAddTaskForm}) => {
     return (
         <header className="header">
             <h1>{title}</h1>
-            <Button text={showAddForm?'Close':'Open'} color={showAddForm?'red':'darkblue'} onAddForm={onAddForm} />
+            <Button text={showForm?'Close':'Open'} color={showForm?'red':'darkblue'} showAddTaskForm={showAddTaskForm} />
         </header>
     )
 }

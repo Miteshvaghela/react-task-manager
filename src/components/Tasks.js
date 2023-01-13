@@ -1,13 +1,12 @@
 import React from 'react'; 
 import Task from './Task'; 
 
-
-const Tasks = ({tasks, toggleMe, deleteMe}) => {
+const Tasks = ({tasks, deleteMe, toggleMe}) => {
     return (
         <>
-            {tasks.length ?
-                tasks.map(task => <Task task={task} key={task.id} deleteMe={deleteMe} toggleMe={toggleMe}/>)
-            : 'No tasks available'}
+        { tasks.length ?
+            tasks.map(task => <Task key={task.id} task={task} deleteMe={deleteMe} toggleMe={toggleMe}/>)
+        : 'No tasks available' }
         </>
     )
 }
