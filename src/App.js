@@ -1,4 +1,4 @@
-import {React, useState, useEffect} from 'react'; 
+import {useState, useEffect} from 'react'; 
 import './App.css';
 import Header from './components/Header';
 import AddForm from './components/AddForm'; 
@@ -28,15 +28,13 @@ const App = ({}) => {
     const task = await fetch(`http://localhost:8000/tasks/${id}`);
     const res = await task.json();
     return res;
-  }
-
+  } 
 
   const onAddForm = () => {
     setShowAddFrom(!showAddForm);    
   }
 
-  const onSaveTask = async (obj) => {
-    
+  const onSaveTask = async (obj) => {    
     const newTask = {
       id : Math.floor(Math.random()*1000)+1,
       title : obj.title,
@@ -50,8 +48,7 @@ const App = ({}) => {
       headers : {
         'content-type':'application/json'
       }
-    })
-
+    });
     setTasks([...tasks, newTask]);
   } 
 
