@@ -61,7 +61,6 @@ const App = () => {
       body : JSON.stringify(obj)
     });
 
-
     setTasks(tasks.map(task => (task.id === id)? {...task, reminder:!task.reminder} :task))
   }
 
