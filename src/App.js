@@ -5,32 +5,26 @@ import AddTaskForm from './components/AddTaskForm';
 import Tasks from './components/Tasks'; 
 
 const App = () => {
-
   const [tasks, setTasks] = useState([]);
   const [showForm, setShowForm] = useState(false);
-
   useEffect(() => {
     const getTasks = async () => {
         const fetchTasks = await fetchAllTasks();
         setTasks(fetchTasks);
     }
     getTasks();
-
   });
-
   const fetchAllTasks = async () => {
     const getData = await fetch('http://localhost:8000/tasks');
     const res = await getData.json(); 
     return res;
   }
-
   const fetchTask = async (id) => {
     const getData = await fetch(`http://localhost:8000/tasks/${id}`);
     const res = getData.json(); 
 
     return res;
   }
-
   const showBtnAction = () => {
     setShowForm(!showForm);
   }
