@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import AddTaskForm from './components/AddTaskForm';
 import Tasks from './components/Tasks'; 
+import SearchBar from './components/SearchBar';
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -70,7 +71,7 @@ const App = () => {
   return (
     <div className="container">
       <Header title="Task Manager" showForm={showForm} showBtnAction={showBtnAction}/>
-
+      {!showForm && <SearchBar />}
       {showForm && <AddTaskForm addTask={addTask} />}
       <Tasks tasks={tasks} toggleMe={toggleMe} deleteMe={deleteMe}/>
 
