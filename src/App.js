@@ -8,17 +8,24 @@ import SearchBar from './components/SearchBar';
 const App = () => {
   const [tasks, setTasks] = useState([]);
   const [showForm, setShowForm] = useState(false);
+  const [term, setTerm] = useState('');
+
   useEffect(() => {
-    const getTasks = async () => {
-        const fetchTasks = await fetchAllTasks();
+    const getTasks = async () => {         
+        const fetchTasks = await fetchAllTasks(term);         
         setTasks(fetchTasks);
     }
     getTasks();
   });
-  const fetchAllTasks = async () => {
+ 
+  const fetchAllTasks = async (term) => {
     const getData = await fetch('http://localhost:8000/tasks');
     const res = await getData.json(); 
-    return res;
+    if(term.length){ 
+      return res.filter(task => (task.title.toLowerCase().indexOf(term) !== -1));
+    }else{
+      return res;
+    }
   }
   const fetchTask = async (id) => {
     const getData = await fetch(`http://localhost:8000/tasks/${id}`);
@@ -68,13 +75,16 @@ const App = () => {
     setTasks(tasks.filter(task => (task.id !== id)));
   }
 
+  const searchFilter = (term) => {
+    setTerm(term);
+  }
+
   return (
     <div className="container">
       <Header title="Task Manager" showForm={showForm} showBtnAction={showBtnAction}/>
-      {!showForm && <SearchBar />}
+      {!showForm && <SearchBar searchFilter={searchFilter}/>}
       {showForm && <AddTaskForm addTask={addTask} />}
       <Tasks tasks={tasks} toggleMe={toggleMe} deleteMe={deleteMe}/>
-
     </div>
   )
 }
