@@ -48,11 +48,8 @@ const App = () => {
       });
 
   }
-
   const toggleMe = async (id) => {
-
     const obj = await fetchTask(id);
-
     obj.reminder = !obj.reminder;
 
     await fetch(`http://localhost:8000/tasks/${id}`, {

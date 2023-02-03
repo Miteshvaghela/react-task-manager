@@ -1,22 +1,16 @@
 {
   "tasks": [
     {
-      "id": 19,
-      "title": "First Task ",
-      "day": "1st jan 2023",
-      "reminder": true
-    },
-    {
-      "id": 594,
-      "title": "Second task",
-      "day": "1st feb 2023",
-      "reminder": false
-    },
-    {
       "id": 656,
       "title": "Third task",
       "day": "3rd jan 2023",
       "reminder": true
+    },
+    {
+      "id": 31,
+      "title": "New task",
+      "day": "1st jan 2023",
+      "reminder": false
     }
   ]
 }

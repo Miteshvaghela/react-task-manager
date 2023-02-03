@@ -9,5 +9,4 @@ const Task = ({ task, toggleMe, deleteMe }) => {
         </div>
     )
 }
-
 export default Task;
