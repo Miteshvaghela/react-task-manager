@@ -62,6 +62,11 @@ const App = () => {
 
     setTasks(tasks.map(task => (task.id === id)? {...task, reminder:!task.reminder} :task))
   }
+  
+  const editTask = (id, obj) => {
+    console.log(id, obj);
+
+  }
 
   const deleteMe = async (id) => {
 
