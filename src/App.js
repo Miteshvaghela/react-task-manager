@@ -22,7 +22,7 @@ const App = () => {
     const getData = await fetch('http://localhost:8000/tasks');
     const res = await getData.json(); 
     if(term.length){ 
-      return res.filter(task => (task.title.toLowerCase().indexOf(term) !== -1));
+      return res.filter(task => (task.title.toLowerCase().includes(term)));
     }else{
       return res;
     }
