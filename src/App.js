@@ -64,7 +64,7 @@ const App = () => {
   }
   
   const editTask = (id, obj) => {
-    console.log(id, obj);
+    // edit task 
 
   }
 

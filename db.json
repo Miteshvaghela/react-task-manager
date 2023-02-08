@@ -1,16 +1,10 @@
 {
   "tasks": [
     {
-      "id": 656,
-      "title": "Third task",
-      "day": "3rd jan 2023",
+      "id": 585,
+      "title": "New task ",
+      "day": "1st march 2023",
       "reminder": true
-    },
-    {
-      "id": 31,
-      "title": "New task",
-      "day": "1st jan 2023",
-      "reminder": false
     }
   ]
 }
