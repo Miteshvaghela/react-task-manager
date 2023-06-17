@@ -3,11 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import AddTaskForm from './components/AddTaskForm';
 import Tasks from './components/Tasks'; 
-import SearchBar from './components/SearchBar';
-
-
-
-
+import SearchBar from './components/SearchBar'; 
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
