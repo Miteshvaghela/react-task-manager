@@ -1,16 +1,10 @@
 {
   "tasks": [
     {
-      "id": 485,
-      "title": "First Task",
-      "day": "23/02/2023",
-      "reminder": true
-    },
-    {
       "id": 366,
       "title": "Movie watch",
       "day": "20/02/2023",
-      "reminder": false
+      "reminder": true
     }
   ]
 }

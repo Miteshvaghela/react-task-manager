@@ -32,6 +32,7 @@ const AddTaskForm = ({ addTask }) => {
         
     }
     return (
+
         <form className="add-form" onSubmit={saveTask}>
             <div className="form-control">
                 <label>Title</label>
@@ -49,6 +50,7 @@ const AddTaskForm = ({ addTask }) => {
                 <input type="submit" className="btn btn-block" value="Save Task" />
             </div>
         </form>
+        
     )
 }
 
