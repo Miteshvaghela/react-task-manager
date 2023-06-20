@@ -3,6 +3,7 @@ import DatePicker from 'react-datepicker';
 
 import 'react-datepicker/dist/react-datepicker.css';
 const AddTaskForm = ({ addTask }) => {
+
     const [title, setTitle] = useState('');
     const [day, setDay] = useState(new Date());
     const [reminder, setReminder] = useState(false);
