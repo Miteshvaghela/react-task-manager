@@ -1,3 +1,5 @@
+import React from 'react';
+
 const SearchBar = ({searchFilter}) => {
     return (
         <form>
