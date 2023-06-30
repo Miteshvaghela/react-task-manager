@@ -16,6 +16,7 @@ const App = () => {
         setTasks(fetchTasks);
     }
     getTasks();
+
   });
  
   const fetchAllTasks = async (term) => {
@@ -83,10 +84,12 @@ const App = () => {
 
   return (
     <div className="container">
+
       <Header title="Task Manager" showForm={showForm} showBtnAction={showBtnAction}/>
       {!showForm && <SearchBar searchFilter={searchFilter}/>}
       {showForm && <AddTaskForm addTask={addTask} />}
       <Tasks tasks={tasks} toggleMe={toggleMe} deleteMe={deleteMe}/>
+      
     </div>
   )
 }
