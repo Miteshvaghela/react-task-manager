@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'; 
-import './App.css'; 
 import Header from './components/Header';
+import Content from './components/Content'; 
 import AddTaskForm from './components/AddTaskForm';
 import Tasks from './components/Tasks'; 
 import SearchBar from './components/SearchBar'; 
@@ -90,6 +90,7 @@ const App = () => {
       <Header title="Task Manager" showForm={showForm} showBtnAction={showBtnAction}/>
       {!showForm && <SearchBar searchFilter={searchFilter}/>}
       {showForm && <AddTaskForm addTask={addTask} />}
+      <Content />
       <Tasks tasks={tasks} toggleMe={toggleMe} deleteMe={deleteMe}/>
       
     </div>
