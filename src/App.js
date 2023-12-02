@@ -5,7 +5,6 @@ import AddTaskForm from './components/AddTaskForm';
 import Tasks from './components/Tasks'; 
 import SearchBar from './components/SearchBar'; 
 
-
 const App = () => {
   const [tasks, setTasks] = useState([]);
   const [showForm, setShowForm] = useState(false);
@@ -18,7 +17,6 @@ const App = () => {
         setTasks(fetchTasks);
     }
     getTasks();
-
   });
  
   const fetchAllTasks = async (term) => {
@@ -97,4 +95,4 @@ const App = () => {
   )
 }
 
-export default App; 
+export default App;
