@@ -3,8 +3,7 @@ import Header from './components/Header';
 import Content from './components/Content'; 
 import AddTaskForm from './components/AddTaskForm';
 import Tasks from './components/Tasks'; 
-import SearchBar from './components/SearchBar'; 
-
+import SearchBar from './components/SearchBar';
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
