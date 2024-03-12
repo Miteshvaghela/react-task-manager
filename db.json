@@ -3,14 +3,8 @@
     {
       "title": "First Task",
       "day": "1/2/2023",
-      "reminder": false,
+      "reminder": true,
       "id": 418
-    },
-    {
-      "title": "Second Task",
-      "day": "3/3/2024",
-      "reminder": false,
-      "id": 830
     }
   ]
 }
