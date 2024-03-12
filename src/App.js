@@ -1,98 +1,94 @@
-import React, { useState, useEffect } from 'react'; 
+import React, {useState, useEffect} from 'react'; 
 import Header from './components/Header';
-import Content from './components/Content'; 
-import AddTaskForm from './components/AddTaskForm';
-import Tasks from './components/Tasks'; 
-import SearchBar from './components/SearchBar';
+import Footer from './components/Footer';
+import TaskForm from './components/TaskForm';
+import Tasks from './components/Tasks';
 
-const App = () => {
+
+const App = ({}) => {
+
+  const [btnName, setBtnName] = useState('Open');
+  const [btnClr, setBtnClr] = useState('green');
+
+
   const [tasks, setTasks] = useState([]);
-  const [showForm, setShowForm] = useState(false);
-  const [term, setTerm] = useState('');
-  const [user, setUser] = useState(); 
+
 
   useEffect(() => {
-    const getTasks = async () => {         
-        const fetchTasks = await fetchAllTasks(term);         
-        setTasks(fetchTasks);
+
+    const fetchData = async () => {
+       const data = await fetchServerData();
+       setTasks(data);
     }
-    getTasks();
+    fetchData();
   });
- 
-  const fetchAllTasks = async (term) => {
-    const getData = await fetch('http://localhost:8000/tasks');
-    const res = await getData.json(); 
-    if(term.length){ 
-      return res.filter(task => (task.title.toLowerCase().includes(term)));
-    }else{
-      return res;
-    }
-  }
-  const fetchTask = async (id) => {
-    const getData = await fetch(`http://localhost:8000/tasks/${id}`);
-    const res = getData.json(); 
 
-    return res;
-  }
-  const showBtnAction = () => {
-    setShowForm(!showForm);
+
+
+  const fetchServerData = async () => {
+    const response = await fetch('http://localhost:8000/tasks');
+    const result = await response.json();
+    return result;
   }
 
-  const addTask = async (obj) => {
-
+  const handleSubmit = async (obj) => {
       await fetch('http://localhost:8000/tasks', {
         method : 'post',
         headers : {
-          'content-type' : 'application/json'
-        },
+          'Content-type' : 'application/json'
+        }, 
         body : JSON.stringify(obj)
       });
-
   }
-  const toggleMe = async (id) => {
-    const obj = await fetchTask(id);
-    obj.reminder = !obj.reminder;
+
+
+  const deleteRecord = async (id) => {
+      await fetch(`http://localhost:8000/tasks/${id}`, {
+        method : 'DELETE' 
+      })
+  }
+
+  const toogleReminder = async (id) => {
+
+    const obj = tasks.filter(task => task.id === id)[0];
+
+    const newObj = obj;
+    newObj.reminder = !obj.reminder; 
 
     await fetch(`http://localhost:8000/tasks/${id}`, {
       method : 'put',
       headers : {
-        'content-type' : 'application/json'
+        'Content-type' : 'application/json'
       },
-      body : JSON.stringify(obj)
-    });
+      body : JSON.stringify(newObj)
+    })
 
-    setTasks(tasks.map(task => (task.id === id)? {...task, reminder:!task.reminder} :task))
-  }
-  
-  const editTask = (id, obj) => {
-    // edit task 
 
   }
 
-  const deleteMe = async (id) => {
-
-    await fetch(`http://localhost:8000/tasks/${id}`, {
-      method : "DELETE"
-    });
-
-    setTasks(tasks.filter(task => (task.id !== id)));
+  const toggleForm = () => {
+    if(btnName === 'Open'){
+      setBtnName('Close');
+      setBtnClr('red');
+    }else{
+      setBtnName('Open');
+      setBtnClr('green');
+    }
   }
 
-  const searchFilter = (term) => {
-    setTerm(term);
+  const btnData = {
+    text : btnName,
+    color : btnClr
   }
 
   return (
     <div className="container">
-
-      <Header title="Task Manager" showForm={showForm} showBtnAction={showBtnAction}/>
-      {!showForm && <SearchBar searchFilter={searchFilter}/>}
-      {showForm && <AddTaskForm addTask={addTask} />}
-      <Content />
-      <Tasks tasks={tasks} toggleMe={toggleMe} deleteMe={deleteMe}/>
-      
+      <Header title="Task scheduler" btnData={btnData} toggleForm={toggleForm}/>
+      {btnName === 'Close' && <TaskForm handleSubmit={handleSubmit}/>}
+      <Tasks tasks={tasks} deleteRecord={deleteRecord} toogleReminder={toogleReminder}/>
+      <Footer text="All rights reserved."/>
     </div>
   )
 }
 
-export default App;
+export default App; 

@@ -71,6 +71,8 @@ body {
   justify-content: space-between;
 }
 
+
+.task-form label{ display:block;}
 .add-form {
   margin-bottom: 40px;
 }
@@ -94,16 +96,23 @@ body {
   justify-content: space-between;
 }
 
-.form-control-check label {
-  flex: 1;
-}
-
-.form-control-check input {
-  flex: 2;
+.form-control-check input{
+  width: 20px;
+  background: yellow;
   height: 20px;
-}
+  margin-left: 40px;
+  vertical-align: sub;
+
+} 
 
 footer {
   margin-top: 30px;
   text-align: center;
+}
+
+.deleteBtn{
+  color:red;
+  font-weight: bold;
+  font-size: 18px;
+  float:right;
 }
